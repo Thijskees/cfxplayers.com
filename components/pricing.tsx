@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 const plans = [
   {
     name: "WEEKLY",
-    price: "2.00",
+    price: "1.50",
     currency: "€",
     perPlayer: true,
     description: "Kickstart your server instantly with a short burst of activity. Great for testing features, attracting first players, and making your server feel alive from day one.",
@@ -14,7 +14,7 @@ const plans = [
   },
   {
     name: "MONTHLY",
-    price: "3.50",
+    price: "2.50",
     currency: "€",
     perPlayer: true,
     description: "Build steady momentum with reliable daily activity. Keep your server looking active, attract real players faster, and maintain a consistent, populated environment.",
