@@ -7,12 +7,12 @@ import Image from "next/image"
 const stats = [
   {
     icon: Users,
-    value: "10,000+",
+    value: "1,000+",
     label: "Fake Players Deployed",
   },
   {
     icon: Server,
-    value: "500+",
+    value: "50+",
     label: "Servers Trust Us",
   },
   {

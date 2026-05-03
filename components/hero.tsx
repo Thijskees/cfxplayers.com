@@ -90,7 +90,7 @@ export function Hero() {
           className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto"
         >
           {[
-            { value: "500+", label: "Active Servers" },
+            { value: "50+", label: "Active Servers" },
             { value: "99.9%", label: "Uptime" },
             { value: "24/7", label: "Live Support" },
           ].map((stat) => (
