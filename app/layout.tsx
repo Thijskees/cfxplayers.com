@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/hero-bg-new.png',
+        url: '/banner.png',
         width: 1200,
         height: 630,
         alt: 'CfxPlayers hero preview',
@@ -48,24 +48,24 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CfxPlayers | FiveM Server Growth & Population Boost',
     description: 'Reliable FiveM server population boosting with fast setup and 24/7 support.',
-    images: ['/images/hero-bg-new.png'],
+    images: ['/banner.png'],
   },
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/logo2.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/logo2.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '/logo2.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/logo2.png',
   },
 }
 
