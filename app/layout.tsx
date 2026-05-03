@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -76,6 +77,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-black scroll-smooth">
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-T0HS3CW79L"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-T0HS3CW79L');
+            `,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased bg-black text-white">
         <script
           type="application/ld+json"
