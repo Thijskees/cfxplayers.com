@@ -1,36 +1,38 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Features", href: "#features" },
   { name: "Pricing", href: "#pricing" },
   { name: "FAQ", href: "#faq" },
-]
+];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [showBanner, setShowBanner] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const element = document.querySelector(href)
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setMobileMenuOpen(false)
-  }
+    setMobileMenuOpen(false);
+  };
 
   return (
     <motion.header
@@ -43,62 +45,32 @@ export function Header() {
           : "bg-black"
       }`}
     >
-      {/* Tailwind Custom Marquee Styles */}
+      {/* Tailwind Custom Infinite Marquee Styles */}
       <style jsx global>{`
         @keyframes marquee {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(-100%); }
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .animate-marquee {
-          animation: marquee 25s linear infinite;
+          animation: marquee 20s linear infinite;
         }
         .animate-marquee:hover {
           animation-play-state: paused;
         }
       `}</style>
 
-      {/* Scrolling White Announcement Bar */}
-      <AnimatePresence>
-        {showBanner && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="bg-white text-black relative flex items-center overflow-hidden h-9 select-none"
-          >
-            {/* Scrolling Text Container */}
-            <div className="w-full overflow-hidden whitespace-nowrap flex items-center">
-              <p className="animate-marquee inline-block text-xs sm:text-sm font-semibold tracking-wide">
-                Join our new discord with all infomation about this project.{" "}
-                <a
-                  href="https://discord.gg/WbzSbF39j8"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline text-purple-700 hover:text-purple-900 font-bold ml-1 transition-colors"
-                >
-                  Join now! https://discord.gg/WbzSbF39j8
-                </a>
-              </p>
-            </div>
-
-            {/* Close Button Overlay (Stays fixed on the right side) */}
-            <div className="absolute right-0 top-0 bottom-0 bg-gradient-to-l from-white via-white to-transparent pl-8 pr-4 flex items-center z-10">
-              <button
-                onClick={() => setShowBanner(false)}
-                className="text-zinc-500 hover:text-black transition-colors"
-                aria-label="Dismiss banner"
-              >
-                <X size={16} />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+      {/* Main Navbar */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="text-lg font-bold text-white tracking-tight hover:text-purple-400 transition-colors">
+          <a
+            href="#"
+            className="text-lg font-bold text-white tracking-tight hover:text-purple-400 transition-colors"
+          >
             CfxPlayers
           </a>
 
@@ -168,6 +140,40 @@ export function Header() {
           </motion.div>
         )}
       </nav>
+
+      {/* Scrolling White Bar - Placed Below the Navbar */}
+      <div className="bg-white text-black border-t border-zinc-200 flex items-center overflow-hidden h-9 select-none w-full">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {/* First instance of text */}
+          <span className="text-xs sm:text-sm font-semibold tracking-wide pr-24">
+            Join our new discord with all infomation about this project.{" "}
+            <a
+              href="https://discord.gg/WbzSbF39j8"
+              target="_blank"
+              rel="noreferrer"
+              className="underline text-purple-700 hover:text-purple-900 font-bold ml-1 transition-colors"
+            >
+              Join now! https://discord.gg/WbzSbF39j8
+            </a>
+          </span>
+
+          {/* Second cloned instance of text (Creates the seamless reappearing loop) */}
+          <span
+            className="text-xs sm:text-sm font-semibold tracking-wide pr-24"
+            aria-hidden="true"
+          >
+            Join our new discord with all infomation about this project.{" "}
+            <a
+              href="https://discord.gg/WbzSbF39j8"
+              target="_blank"
+              rel="noreferrer"
+              className="underline text-purple-700 hover:text-purple-900 font-bold ml-1 transition-colors"
+            >
+              Join now! https://discord.gg/WbzSbF39j8
+            </a>
+          </span>
+        </div>
+      </div>
     </motion.header>
-  )
+  );
 }
