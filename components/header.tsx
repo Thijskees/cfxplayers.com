@@ -146,7 +146,7 @@ export function Header() {
         <div className="flex whitespace-nowrap animate-marquee">
           {/* First instance of text */}
           <span className="text-xs sm:text-sm font-semibold tracking-wide pr-24">
-            Join our new discord with all infomation about this project.{" "}
+            PROJECT SOON READY JOIN OUR NEW DISCORD WITL ALL INFORMATION ABOUT THIS FAKE PLAYERS PROJECT.{" "}
             <a
               href="https://discord.gg/WbzSbF39j8"
               target="_blank"
@@ -162,7 +162,7 @@ export function Header() {
             className="text-xs sm:text-sm font-semibold tracking-wide pr-24"
             aria-hidden="true"
           >
-            Join our new discord with all infomation about this project.{" "}
+            PROJECT SOON READY JOIN OUR NEW DISCORD WITL ALL INFORMATION ABOUT THIS FAKE PLAYERS PROJECT.{" "}
             <a
               href="https://discord.gg/WbzSbF39j8"
               target="_blank"
